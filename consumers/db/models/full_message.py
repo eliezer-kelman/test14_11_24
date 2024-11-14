@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
-from app.db.models import Base
+from consumers.db.models import Base
 
 
 class FullMessage(Base):
@@ -11,6 +11,7 @@ class FullMessage(Base):
     device_id = Column(Integer, ForeignKey('devices.id'))
     suspicious_hostage_content_id = Column(Integer, ForeignKey('suspicious_hostage_contents.id'))
     suspicious_explosive_content_id = Column(Integer, ForeignKey('suspicious_explosive_contents.id'))
+    message = Column(String)
 
 
     user = relationship('User', back_populates='full_messages')

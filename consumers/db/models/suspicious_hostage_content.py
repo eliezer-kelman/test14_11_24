@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from app.db.models import Base
+from consumers.db.models import Base
 
 
 class SuspiciousHostageContent(Base):
