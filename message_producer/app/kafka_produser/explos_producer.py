@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 from kafka_settings.producer import produce
 
 load_dotenv(verbose=True)
-explosive_topic = os.environ['TOPIC_EXPLOSIVE_MESSAGES_NAME']
+topic_explosive = os.environ['TOPIC_EXPLOSIVE_MESSAGES_NAME']
 
 def produce_explos_in_message(email_info):
     produce(
-        topic=explosive_topic,
-        key=email_info['email'].encode('utf-8'),
+        topic=topic_explosive,
+        key=email_info['email'],
         value=email_info)

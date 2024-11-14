@@ -8,9 +8,9 @@ from message_producer.app.kafka_produser.hostage_producer import produce_hostage
 def monitoring(email: json):
     produce_all_message(email)
     if is_explos(email['sentences']):
-        produce_hostage_in_message(arrangement_of_a_message(email))
-    elif is_hostage(email['sentences'])
         produce_explos_in_message(arrangement_of_a_message(email))
+    elif is_hostage(email['sentences']):
+        produce_hostage_in_message(arrangement_of_a_message(email))
 
 
 def is_explos(sentences: List) -> bool:
