@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-engine = create_engine(os.environ['POSTGRESQL_DB_URL'])
+engine = create_engine('postgresql://admin:1234@172.24.255.254:5432/monitoring_messages')
 session_maker = sessionmaker(bind=engine)
 
 @contextmanager

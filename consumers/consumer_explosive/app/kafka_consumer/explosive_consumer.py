@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
-from consumers.consumer_all_messages.app.repository.messages_repository import insert_explosive
+
+from consumers.consumer_explosive.app.repository.explosive_repository import insert_explosive
 from kafka_settings.consumer import consume
 
 load_dotenv(verbose=True)
