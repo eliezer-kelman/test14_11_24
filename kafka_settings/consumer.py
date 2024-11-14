@@ -1,12 +1,13 @@
 import json
 import os
-from types import FunctionType
+from typing import Callable, Any
+
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
 load_dotenv(verbose=True)
 
-def consume(topic: str, function: FunctionType ,mode='latest'):
+def consume(topic: str, function: Callable[[Any], Any] ,mode='latest'):
     consumer = KafkaConsumer(
         topic,
         bootstrap_servers=os.environ['BOOTSTRAP_SERVERS'],
@@ -15,3 +16,4 @@ def consume(topic: str, function: FunctionType ,mode='latest'):
     )
     for message in consumer:
         function(message)
+
