@@ -7,6 +7,5 @@ class SuspiciousHostageContent(Base):
     __tablename__ = 'suspicious_hostage_content'
     id = Column(Integer, primary_key=True, autoincrement=True)
     message = Column(String, nullable=False)
-    full_message_id = Column(String, ForeignKey('full_message.id'))
 
     full_message = relationship('FullMessage', back_populates='suspicious_hostage_content')

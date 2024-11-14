@@ -3,7 +3,7 @@ from consumers.db.repository.full_message_repository import insert_full_message
 
 
 def insert_explosive(message):
-    insert_full_message(convert_json_to_full_message(message))
+    insert_full_message(convert_json_to_full_message(message.value))
 
 
 

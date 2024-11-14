@@ -1,4 +1,9 @@
-from consumers.db.models import FullMessage, User, Location, Device, SuspiciousExplosiveContent
+from enum import member
+
+from pyexpat.errors import messages
+
+from consumers.db.models import FullMessage, User, Location, Device, SuspiciousExplosiveContent, \
+    SuspiciousHostageContent
 
 
 def convert_json_to_full_message(json_message) -> FullMessage:
@@ -15,12 +20,12 @@ def convert_json_to_full_message(json_message) -> FullMessage:
             city= json_message['location']['city'],
             country= json_message['location']['country']
         ),
-        device = Device(
+        device_info = Device(
             device_id = json_message['device_info']['device_id'],
             os = json_message['device_info']['os'],
             browser = json_message['device_info']['browser']
         ),
-        suspicious_explosive_content = SuspiciousExplosiveContent(
+        suspicious_hostage_content = SuspiciousHostageContent(
             message = json_message['sentences'][0]
         ),
         message = ', '.join(json_message['sentences'])
